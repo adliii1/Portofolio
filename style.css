@@ -1,21 +1,45 @@
-/* --- NEO-BRUTALISM DESIGN TOKENS --- */
+/* --- SEMANTIC COLOR SYSTEM --- */
 :root {
-    --bg-cream: #FFFDF5;
-    --c-black: #000000;
-    --c-white: #FFFFFF;
+    /* DEFAULT (LIGHT MODE) */
+    --bg-body: #FFFDF5;
+    /* Cream */
+    --bg-card: #FFFFFF;
+    /* Putih */
+    --c-ink: #000000;
+    /* Tinta (untuk Teks & Border) */
+    --c-inverse: #FFFFFF;
+    /* Warna kebalikan */
+
+    /* Accents (Tetap cerah di kedua mode) */
     --c-red: #FF6B6B;
     --c-yellow: #FFD93D;
     --c-violet: #C4B5FD;
 
+    /* Measurements */
     --border-width: 4px;
-    --shadow-sm: 4px 4px 0 0 var(--c-black);
-    --shadow-md: 8px 8px 0 0 var(--c-black);
-    --shadow-lg: 12px 12px 0 0 var(--c-black);
+    --shadow-sm: 4px 4px 0 0 var(--c-ink);
+    --shadow-md: 8px 8px 0 0 var(--c-ink);
+    --shadow-lg: 12px 12px 0 0 var(--c-ink);
 
     --font-main: 'Space Grotesk', sans-serif;
 }
 
-/* RESET */
+/* DARK MODE OVERRIDES */
+[data-theme="dark"] {
+    --bg-body: #050505;
+    /* Hitam Pekat */
+    --bg-card: #1a1a1a;
+    /* Abu Gelap */
+    --c-ink: #ffffff;
+    /* Tinta jadi Putih */
+    --c-inverse: #000000;
+    /* Kebalikan jadi Hitam */
+
+    /* Sesuaikan shadow agar terlihat di background gelap */
+    /* Opsional: Ubah warna accent sedikit jika terlalu silau, tapi biasanya aman */
+}
+
+/* RESET & BASE */
 * {
     margin: 0;
     padding: 0;
@@ -27,51 +51,75 @@ html {
 }
 
 body {
-    background-color: var(--bg-cream);
+    background-color: var(--bg-body);
+    /* Gunakan variabel baru */
+    color: var(--c-ink);
+    /* Gunakan variabel baru */
     font-family: var(--font-main);
-    color: var(--c-black);
     line-height: 1.5;
     overflow-x: hidden;
-    /* Prevent scrollbar from animation */
-    background-image: radial-gradient(var(--c-black) 0.5px, transparent 0.5px);
+    /* Ubah warna titik-titik background secara dinamis */
+    background-image: radial-gradient(var(--c-ink) 0.5px, transparent 0.5px);
     background-size: 20px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Transisi halus saat ganti tema */
 }
 
-/* --- CUSTOM CURSOR STYLES --- */
+/* --- THEME TOGGLE BUTTON --- */
+.theme-btn {
+    background: var(--bg-card);
+    border: var(--border-width) solid var(--c-ink);
+    color: var(--c-ink);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: none;
+    box-shadow: var(--shadow-sm);
+    margin-right: 15px;
+    /* Jarak ke hamburger/menu */
+    transition: transform 0.1s;
+}
+
+.theme-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+/* --- CUSTOM CURSOR STYLES (FIXED) --- */
 #cursor-dot {
     width: 20px;
     height: 20px;
-    background-color: var(--c-white);
-    /* White because we use 'difference' mode */
+    background-color: var(--c-red);
+    /* Warna Merah agar pasti terlihat */
     position: fixed;
     top: 0;
     left: 0;
     border-radius: 50%;
     pointer-events: none;
-    /* Let clicks pass through */
-    z-index: 9999;
+    z-index: 99999;
+    /* Pastikan paling atas */
     transform: translate(-50%, -50%);
-    transition: width 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-        height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    mix-blend-mode: difference;
-    /* Cool negative color effect */
+    border: 2px solid var(--c-black);
+    /* Border hitam agar tajam */
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    /* mix-blend-mode saya hapus karena sering bikin hilang di background abu-abu */
 }
 
 /* Hide default cursor on desktop */
 @media (hover: hover) and (pointer: fine) {
-    body {
-        cursor: none;
-    }
 
-    /* Ensure links keep pointer cursor logic if JS fails, but visually hide it */
     a,
     button,
-    .hover-trigger {
+    .hover-trigger,
+    .theme-btn {
         cursor: none;
     }
 }
 
-/* Hide custom cursor on mobile/touch */
+/* Hide custom cursor on mobile */
 @media (hover: none) {
     #cursor-dot {
         display: none;
@@ -80,9 +128,12 @@ body {
 
 /* Cursor Grow State */
 body.hovering #cursor-dot {
-    width: 60px;
-    height: 60px;
-    background-color: var(--c-white);
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    /* Jadi transparan */
+    border: 4px solid var(--c-red);
+    /* Hanya border merah */
 }
 
 /* --- ANIMATION UTILITIES --- */
@@ -182,12 +233,18 @@ body.hovering #cursor-dot {
 
 /* Navbar */
 .navbar {
-    border-bottom: var(--border-width) solid var(--c-black);
-    background: var(--bg-cream);
+    border-bottom: var(--border-width) solid var(--c-ink);
+    /* Border mengikuti tema */
+    background-color: var(--bg-body);
+    /* PENTING: Menggunakan warna background body agar solid */
     padding: 20px 0;
     position: sticky;
+    /* Agar tetap menempel di atas */
     top: 0;
     z-index: 100;
+    /* Layer di atas konten, tapi di bawah cursor */
+    transition: background-color 0.3s, border-color 0.3s;
+    /* Transisi halus saat ganti tema */
 }
 
 .nav-container {
@@ -228,8 +285,8 @@ body.hovering #cursor-dot {
 }
 
 .btn-nav {
-    background: var(--c-black);
-    color: var(--c-white);
+    background: var(--c-ink);
+    color: var(--bg-body);
     padding: 8px 16px;
     text-decoration: none;
     font-weight: 700;
@@ -513,8 +570,8 @@ body.hovering #cursor-dot {
 
 /* Footer */
 .footer {
-    background: var(--c-black);
-    color: var(--bg-cream);
+    background: var(--c-ink);
+    color: var(--bg-body);
     padding: 60px 0 20px;
     border-top: var(--border-width) solid var(--c-black);
 }
