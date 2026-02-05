@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suminten | Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="cursor-dot"></div>
+
+    <nav class="navbar">
+      <div class="container nav-container">
+        <div class="logo">SUMINTEN<span class="dot">.</span>DEV</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#about" class="hover-trigger">About</a>
+          <a href="#experience" class="hover-trigger">Experience</a>
+          <a href="#projects" class="hover-trigger">Work</a>
+          <a href="#contact" class="btn-nav hover-trigger">Let's Talk</a>
+          <button
+            class="hamburger hover-trigger"
+            id="hamburger"
+            aria-label="Menu"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="badge-rotate">OPEN TO WORK</div>
+          <h1>FRONTEND<br />ENGINEER<span class="stroke-text">.</span></h1>
+          <p class="subtitle">
+            Mahasiswa Teknik Informatika semester akhir yang spesialis mengubah
+            kopi menjadi kode
+            <span class="highlight">JavaScript</span> &
+            <span class="highlight">Next.js</span>.
+          </p>
+          <div class="cta-group">
+            <a href="#projects" class="btn btn-primary hover-trigger"
+              >Lihat Proyek</a
+            >
+            <a
+              href="https://github.com/username"
+              target="_blank"
+              class="btn btn-secondary hover-trigger"
+            >
+              <i class="ph ph-github-logo"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="hero-image reveal delay-100">
+          <div class="image-frame">
+            <img
+              src="profile.jpg"
+              alt="Foto Profil Suminten"
+              class="profile-img"
+            />
+            <div class="decorative-shape shape-1"></div>
+            <div class="decorative-shape shape-2"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span>JAVASCRIPT</span> <i class="ph ph-star-four"></i>
+        <span>NEXT.JS</span> <i class="ph ph-star-four"></i> <span>CSS3</span>
+        <i class="ph ph-star-four"></i> <span>HTML5</span>
+        <i class="ph ph-star-four"></i> <span>GIT</span>
+        <i class="ph ph-star-four"></i> <span>UI/UX</span>
+        <i class="ph ph-star-four"></i> <span>RESPONSIVE</span>
+        <i class="ph ph-star-four"></i>
+
+        <span>JAVASCRIPT</span> <i class="ph ph-star-four"></i>
+        <span>NEXT.JS</span> <i class="ph ph-star-four"></i> <span>CSS3</span>
+        <i class="ph ph-star-four"></i> <span>HTML5</span>
+        <i class="ph ph-star-four"></i> <span>GIT</span>
+        <i class="ph ph-star-four"></i> <span>UI/UX</span>
+        <i class="ph ph-star-four"></i> <span>RESPONSIVE</span>
+        <i class="ph ph-star-four"></i>
+      </div>
+    </div>
+    <main class="container">
+      <section id="experience" class="section-spacer">
+        <h2 class="section-title reveal">MY JOURNEY</h2>
+
+        <div class="grid-2-col">
+          <div class="card neo-card hover-trigger reveal delay-100">
+            <div class="card-header bg-yellow">
+              <h3>IndigoHub Makassar</h3>
+              <span class="tag">Internship</span>
+            </div>
+            <div class="card-body">
+              <p class="date">Sep 2025 - Sekarang</p>
+              <p>
+                Mengelola manajemen data, pemeliharaan IT, dan persiapan teknis
+                untuk event besar "Indigo AI Connect". Belajar bekerja dalam tim
+                agile.
+              </p>
+            </div>
+          </div>
+
+          <div class="card neo-card hover-trigger reveal delay-200">
+            <div class="card-header bg-violet">
+              <h3>Teknik Informatika</h3>
+              <span class="tag">Student</span>
+            </div>
+            <div class="card-body">
+              <p class="date">Semester Akhir</p>
+              <p>
+                Fokus pada pengembangan Web Frontend. Aktif dalam komunitas dan
+                event berbagi ilmu seperti "Go to School" untuk mengajar
+                HTML/CSS dasar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-spacer">
+        <h2 class="section-title reveal">SELECTED WORK</h2>
+
+        <div class="projects-grid">
+          <article class="project-card hover-trigger reveal delay-100">
+            <div class="project-visual bg-red">
+              <span class="project-icon"><i class="ph ph-student"></i></span>
+            </div>
+            <div class="project-info">
+              <h3>LMS Platform</h3>
+              <p class="tech-stack">Next.js • Prisma • PostgreSQL</p>
+              <p>
+                Sistem Manajemen Pembelajaran (LMS) modern untuk institusi
+                pendidikan. Fitur mencakup manajemen siswa, materi kursus, dan
+                tracking progress.
+              </p>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-outline hover-trigger">
+                  Demo
+                </button>
+                <button class="btn btn-sm btn-outline hover-trigger">
+                  Code
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card hover-trigger reveal delay-200">
+            <div class="project-visual bg-yellow">
+              <span class="project-icon"><i class="ph ph-buildings"></i></span>
+            </div>
+            <div class="project-info">
+              <h3>Company Profile</h3>
+              <p class="tech-stack">HTML • CSS • JavaScript</p>
+              <p>
+                Website profil perusahaan yang responsif dan performan. Fokus
+                pada animasi mikro interaktif dan struktur SEO yang baik.
+              </p>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-outline hover-trigger">
+                  Visit
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card hover-trigger reveal delay-300">
+            <div class="project-visual bg-violet">
+              <span class="project-icon"><i class="ph ph-robot"></i></span>
+            </div>
+            <div class="project-info">
+              <h3>AI Community Event</h3>
+              <p class="tech-stack">Event Management • Collaboration</p>
+              <p>
+                Kolaborasi event "The Art of Communicating with AI". Bertanggung
+                jawab atas materi publikasi digital dan koordinasi teknis.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="container reveal">
+        <div class="contact-box hover-trigger">
+          <h2>LET'S WORK TOGETHER</h2>
+          <p>
+            Tertarik membuat website brutal tapi fungsional? Atau sekadar
+            diskusi tentang Next.js?
+          </p>
+
+          <div class="social-links">
+            <a
+              href="mailto:email@suminten.dev"
+              class="social-btn bg-red hover-trigger"
+            >
+              <i class="ph ph-envelope"></i> Email
+            </a>
+            <a
+              href="https://linkedin.com/in/username"
+              target="_blank"
+              class="social-btn bg-yellow hover-trigger"
+            >
+              <i class="ph ph-linkedin-logo"></i> LinkedIn
+            </a>
+            <a
+              href="https://instagram.com/username"
+              target="_blank"
+              class="social-btn bg-violet hover-trigger"
+            >
+              <i class="ph ph-instagram-logo"></i> Instagram
+            </a>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2026 Suminten. Built with raw HTML/CSS & Neo-brutalism spirit.
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
